@@ -14,6 +14,14 @@ public class Ingrediens {
     @ManyToOne
     Recipe recipe;
 
+    public Ingrediens() {
+    }
+
+    public Ingrediens(Integer id, Recipe recipe) {
+        this.id = id;
+        this.recipe = recipe;
+    }
+
     public Integer getId() {
         return id;
     }

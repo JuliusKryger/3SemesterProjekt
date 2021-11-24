@@ -1,36 +1,24 @@
-package entities;
+package dtos;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
+import entities.Recipe;
+
 import java.util.List;
 
-@Entity
-public class Recipe implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+public class RecipeDTO {
     private Integer id;
     private String title;
     private int readyInMinutes;
     private int servings;
     private String image;
     private String instructions;
+    List<IngrediensDTO> ingrediens;
 
-    @OneToMany
-    private List<Ingrediens> ingrediensList;
-
-    public Recipe() {
-    }
-
-    public Recipe(Integer id, String title, int readyInMinutes, int servings, String image, String instructions, List<Ingrediens> ingrediensList) {
-        this.id = id;
-        this.title = title;
-        this.readyInMinutes = readyInMinutes;
-        this.servings = servings;
-        this.image = image;
-        this.instructions = instructions;
-        this.ingrediensList = new ArrayList<>();
+    public RecipeDTO(Recipe recipe) {
+        this.id = recipe.getId();
+        this.readyInMinutes = recipe.getReadyInMinutes();
+        this.servings = recipe.getServings();
+        this.image = recipe.getImage();
+        this.instructions = recipe.getInstructions();
     }
 
     public Integer getId() {
@@ -81,15 +69,24 @@ public class Recipe implements Serializable {
         this.instructions = instructions;
     }
 
-    public List<Ingrediens> getIngrediensList() {
-        return ingrediensList;
+    public List<IngrediensDTO> getIngrediens() {
+        return ingrediens;
     }
 
-    public void setIngrediensList(List<Ingrediens> ingrediensList) {
-        this.ingrediensList = ingrediensList;
+    public void setIngrediens(List<IngrediensDTO> ingrediens) {
+        this.ingrediens = ingrediens;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "RecipeDTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", readyInMinutes=" + readyInMinutes +
+                ", servings=" + servings +
+                ", image='" + image + '\'' +
+                ", instructions='" + instructions + '\'' +
+                ", ingrediens=" + ingrediens +
+                '}';
+    }
 }
