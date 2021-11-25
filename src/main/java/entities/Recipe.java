@@ -14,23 +14,23 @@ public class Recipe implements Serializable {
     private String title;
     private int readyInMinutes;
     private int servings;
-    private String image;
-    private String instructions;
+    //private String image;
+    //private String instructions;
 
-    @OneToMany
-    private List<Ingrediens> ingrediensList;
-
+    /*@OneToMany
+    private List<Ingredients> ingredientsList;
+*/
     public Recipe() {
     }
 
-    public Recipe(Integer id, String title, int readyInMinutes, int servings, String image, String instructions, List<Ingrediens> ingrediensList) {
+    public Recipe(Integer id, String title, int readyInMinutes, int servings, String image, String instructions, List<Ingredients> ingredientsList) {
         this.id = id;
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
-        this.image = image;
-        this.instructions = instructions;
-        this.ingrediensList = new ArrayList<>();
+        //this.image = image;
+        //this.instructions = instructions;
+        //this.ingredientsList = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -65,7 +65,7 @@ public class Recipe implements Serializable {
         this.servings = servings;
     }
 
-    public String getImage() {
+    /*public String getImage() {
         return image;
     }
 
@@ -81,13 +81,13 @@ public class Recipe implements Serializable {
         this.instructions = instructions;
     }
 
-    public List<Ingrediens> getIngrediensList() {
-        return ingrediensList;
+    public List<Ingredients> getIngrediensList() {
+        return ingredientsList;
     }
 
-    public void setIngrediensList(List<Ingrediens> ingrediensList) {
-        this.ingrediensList = ingrediensList;
-    }
+    public void setIngrediensList(List<Ingredients> ingrediensList) {
+        this.ingredientsList = ingredientsList;
+    }*/
 
 
 
