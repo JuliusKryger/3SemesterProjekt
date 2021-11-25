@@ -90,11 +90,11 @@ public class Recipe implements Serializable {
         this.instructions = instructions;
     }
 
-    public List<Ingredients> getIngrediensList() {
+    public List<Ingredients> getIngredientsList() {
         return ingredientsList;
     }
 
-    public void setIngrediensList(List<Ingredients> ingrediensList) {
+    public void setIngredientsList(List<Ingredients> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }*/
 
