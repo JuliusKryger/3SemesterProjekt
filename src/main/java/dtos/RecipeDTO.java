@@ -57,6 +57,7 @@ public class RecipeDTO {
     public void setServings(int servings) {
         this.servings = servings;
     }
+    /*
 
     public String getImage() {
         return image;

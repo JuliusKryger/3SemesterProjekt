@@ -1,5 +1,7 @@
 package entities;
 
+import dtos.RecipeDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class Recipe implements Serializable {
     public Recipe() {
     }
 
-    public Recipe(Integer id, String title, int readyInMinutes, int servings, String image, String instructions, List<Ingredients> ingredientsList) {
+    public Recipe(Integer id, String title, int readyInMinutes, int servings) {
         this.id = id;
         this.title = title;
         this.readyInMinutes = readyInMinutes;
@@ -31,6 +33,13 @@ public class Recipe implements Serializable {
         //this.image = image;
         //this.instructions = instructions;
         //this.ingredientsList = new ArrayList<>();
+    }
+
+    public Recipe(RecipeDTO recipeDTO) {
+        this.id = recipeDTO.getId();
+        this.title = recipeDTO.getTitle();
+        this.readyInMinutes = recipeDTO.getReadyInMinutes();
+        this.servings = recipeDTO.getServings();
     }
 
     public Integer getId() {
