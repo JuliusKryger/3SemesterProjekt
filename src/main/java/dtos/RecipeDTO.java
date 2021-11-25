@@ -46,13 +46,14 @@ public class RecipeDTO {
         this.readyInMinutes = readyInMinutes;
     }
 
-    /*public int getServings() {
+    public int getServings() {
         return servings;
     }
 
     public void setServings(int servings) {
         this.servings = servings;
     }
+    /*
 
     public String getImage() {
         return image;
