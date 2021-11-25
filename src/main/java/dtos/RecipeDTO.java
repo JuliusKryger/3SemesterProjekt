@@ -9,16 +9,20 @@ public class RecipeDTO {
     private String title;
     private int readyInMinutes;
     private int servings;
+    /*
     private String image;
     private String instructions;
-    //List<IngrediensDTO> ingrediens;
+    List<IngredientsDTO> ingredients;
+     */
 
     public RecipeDTO(Recipe recipe) {
         this.id = recipe.getId();
         this.readyInMinutes = recipe.getReadyInMinutes();
         this.servings = recipe.getServings();
+        /*
         this.image = recipe.getImage();
         this.instructions = recipe.getInstructions();
+         */
     }
 
     public Integer getId() {
@@ -45,6 +49,7 @@ public class RecipeDTO {
         this.readyInMinutes = readyInMinutes;
     }
 
+    /*
     public int getServings() {
         return servings;
     }
@@ -69,14 +74,13 @@ public class RecipeDTO {
         this.instructions = instructions;
     }
 
-   /* public List<IngrediensDTO> getIngrediens() {
-        return ingrediens;
+    public List<IngredientsDTO> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngrediens(List<IngrediensDTO> ingrediens) {
-        this.ingrediens = ingrediens;
+    public void setIngredients(List<IngredientsDTO> ingredients) {
+        this.ingredients = ingredients;
     }
-
     */
 
     @Override
@@ -86,9 +90,10 @@ public class RecipeDTO {
                 ", title='" + title + '\'' +
                 ", readyInMinutes=" + readyInMinutes +
                 ", servings=" + servings +
-                ", image='" + image + '\'' +
+                /*", image='" + image + '\'' +
                 ", instructions='" + instructions + '\'' +
-                ", ingrediens=" + //ingrediens +
+                ", ingredients=" + ingredients +
+                 */
                 '}';
     }
 }

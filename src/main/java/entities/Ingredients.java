@@ -6,20 +6,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Ingrediens {
+public class Ingredients {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
+    private String name;
 
     @ManyToOne
     Recipe recipe;
 
-    public Ingrediens() {
+    public Ingredients() {
     }
 
-    public Ingrediens(Integer id, Recipe recipe) {
+    public Ingredients(Integer id, Recipe recipe, String name) {
         this.id = id;
         this.recipe = recipe;
+        this.name = name;
     }
 
     public Integer getId() {
@@ -28,5 +30,13 @@ public class Ingrediens {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
