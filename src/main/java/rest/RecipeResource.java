@@ -27,8 +27,10 @@ public class RecipeResource {
         Gson gson = new Gson();
         String recipe = HttpUtils.fetchData("https://api.spoonacular.com/recipes/random?number=7&tags=dinner&apiKey=" + APIKEY);
         JsonObject jsonObject = new JsonParser().parse(recipe).getAsJsonObject();
-        RecipeDTO recipeDTO = gson.fromJson(jsonObject.get("data"), RecipeDTO.class);
+        //RecipeDTO recipeDTO = gson.fromJson(jsonObject.get("recipes"), RecipeDTO.class);
+        RecipeDTO recipeDTO = gson.fromJson(recipe, RecipeDTO.class);
         String result = gson.toJson(recipeDTO);
         return result;
     }
+
 }

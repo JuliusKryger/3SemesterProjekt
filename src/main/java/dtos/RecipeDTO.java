@@ -11,7 +11,7 @@ public class RecipeDTO {
     private int servings;
     private String image;
     private String instructions;
-    List<IngrediensDTO> ingrediens;
+    //List<IngrediensDTO> ingrediens;
 
     public RecipeDTO(Recipe recipe) {
         this.id = recipe.getId();
@@ -69,13 +69,15 @@ public class RecipeDTO {
         this.instructions = instructions;
     }
 
-    public List<IngrediensDTO> getIngrediens() {
+   /* public List<IngrediensDTO> getIngrediens() {
         return ingrediens;
     }
 
     public void setIngrediens(List<IngrediensDTO> ingrediens) {
         this.ingrediens = ingrediens;
     }
+
+    */
 
     @Override
     public String toString() {
@@ -86,7 +88,7 @@ public class RecipeDTO {
                 ", servings=" + servings +
                 ", image='" + image + '\'' +
                 ", instructions='" + instructions + '\'' +
-                ", ingrediens=" + ingrediens +
+                ", ingrediens=" + //ingrediens +
                 '}';
     }
 }
