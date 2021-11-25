@@ -49,7 +49,7 @@ public class RecipeDTO {
         this.readyInMinutes = readyInMinutes;
     }
 
-    /*
+
     public int getServings() {
         return servings;
     }
