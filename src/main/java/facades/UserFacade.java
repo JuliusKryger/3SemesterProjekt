@@ -41,6 +41,10 @@ public class UserFacade {
     public User CreateNewUser(User user) throws AuthenticationException {
         EntityManager em = emf.createEntityManager();
         try {
+            /**
+             * Okay her skal vi have gjort så når en ny user bliver oprettet bliver de tildelt user rollen ligenu
+             * Så bliver nye users ikke tildelt en ny rolle, men se evt. i SetUpTestUsers hvordan der bliver tildelt roller der.
+             **/
             em.getTransaction().begin();
             user.setUserName(user.getUserName());
             user.setUserPass(user.getUserPass());

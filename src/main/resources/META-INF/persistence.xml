@@ -5,8 +5,7 @@
     <persistence-unit name="pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>entities.Recipe</class>
-        <class>Ingrediens</class>
-        <class>entities.Ingrediens</class>
+        <class>entities.Ingredients</class>
         <!--    <class>entities.RenameMe</class>-->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
@@ -24,7 +23,7 @@
             <property name="eclipselink.logging.parameters" value="true"/>
             
             <!-- In PRODUCTION the values below, will be overriden by utils.EMF_Creator -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sem3startcode?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/semester3projekt?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="dev"/>
             <property name="javax.persistence.jdbc.password" value="ax2"/>
             
@@ -41,7 +40,7 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="eclipselink.canonicalmodel.subpackage" value="ghy636765"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sem3startcode_test?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/semester3projekt_test?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="dev"/>
             <property name="javax.persistence.jdbc.password" value="ax2"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
