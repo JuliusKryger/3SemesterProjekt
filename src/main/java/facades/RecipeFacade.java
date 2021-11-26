@@ -25,7 +25,11 @@ public class RecipeFacade {
     }
     //get trancation (begin and close) persist og merge med recipelist - i gang her
 
-    public User getrecipes() {
 
+    public User saveMealPlanToUser() {
+
+        return null;
     }
+
+
 }

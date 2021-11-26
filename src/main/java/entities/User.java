@@ -35,13 +35,58 @@ public class User implements Serializable {
     // Alex Maja igang
     // user ny constructer med en liste af recipes
     @OneToMany
-    private List<Recipe> recipes = new ArrayList<>();
+    private List<Recipe> recipeList = new ArrayList<>();
 
-    public User(List<Recipe> getrecipes) {
+    /** Hmm nok ikke en liste a Recipe entity, men nu må vi se **/
+    public User(List<Recipe> getRecipes) {
         this.userName = getUserName();
         this.userPass = getUserPass();
-        this.recipes = getrecipes;
+        this.recipeList = getRecipes;
     }
+
+    public User() {
+    }
+
+    public User(String userName, String userPass) {
+        this.userName = userName;
+        this.userPass = BCrypt.hashpw(userPass, BCrypt.gensalt());
+    }
+/*
+    public void addRecipes(Hobby hobby) {
+        if (hobby != null) {
+            this.hobbies.add(hobby);
+            hobby.getPersons().add(this);
+        }
+    }
+
+    public void removeRecipes(Hobby hobby) {
+        if (hobby != null) {
+            this.hobbies.remove(hobby);
+            hobby.getPersons().remove(this);
+        }
+    }
+
+    public List<Hobby> getRecipeList(List<HobbyDTO> hobbyDTOS) {
+        ArrayList<Hobby> list = new ArrayList<>();
+        for (HobbyDTO h : hobbyDTOS) {
+            list.add(new Hobby(h.getName(), h.getWikiLink(), h.getCategory(), h.getType()));
+        }
+        return list;
+    }
+
+    public List<HobbyDTO> getRecipeDTOList(List<Hobby> hobby) {
+        ArrayList<HobbyDTO> list = new ArrayList<>();
+        for (Hobby h : hobby) {
+            list.add(new HobbyDTO(h));
+        }
+        return list;
+    }
+
+    public void replaceRecipes(ArrayList<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+ */
 
     public List<String> getRolesAsStrings() {
         if (roleList.isEmpty()) {
@@ -52,23 +97,6 @@ public class User implements Serializable {
             rolesAsStrings.add(role.getRoleName());
         });
         return rolesAsStrings;
-    }
-
-    public User() {
-    }
-
-    public User(String userName, String userPass) {
-        this.userName = userName;
-        this.userPass = BCrypt.hashpw(userPass, BCrypt.gensalt());
-    }
-
-    //addrecipes vi er i gang her - hjælp
-    public void addRecipes(Recipe recipe){
-        if (recipe != null) {
-            this.recipes.add(recipe);
-            recipe.getRecipes().a
-        }
-
     }
 
     //TODO Change when password is hashed
@@ -105,4 +133,12 @@ public class User implements Serializable {
         roleList.add(userRole);
     }
 
+    /** Jeg har tilføjet gettere og settere til vores recipeList. **/
+    public List<Recipe> getRecipeList() {
+        return recipeList;
+    }
+
+    public void setRecipeList(List<Recipe> recipeList) {
+        this.recipeList = recipeList;
+    }
 }

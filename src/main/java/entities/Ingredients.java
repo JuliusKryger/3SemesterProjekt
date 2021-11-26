@@ -1,11 +1,9 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "ingredients")
 public class Ingredients {
     @Id
     @Column(name = "id", nullable = false)
