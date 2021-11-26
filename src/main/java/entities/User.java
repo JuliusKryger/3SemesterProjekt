@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import dtos.RecipeDTO;
 import dtos.RecipesDTO;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -35,10 +36,10 @@ public class User implements Serializable {
     // Alex Maja igang
     // user ny constructer med en liste af recipes
     @OneToMany
-    private List<Recipe> recipeList = new ArrayList<>();
+    private List<RecipeDTO> recipeList = new ArrayList<>();
 
     /** Hmm nok ikke en liste a Recipe entity, men nu må vi se **/
-    public User(List<Recipe> getRecipes) {
+    public User(List<RecipeDTO> getRecipes) {
         this.userName = getUserName();
         this.userPass = getUserPass();
         this.recipeList = getRecipes;
@@ -134,11 +135,11 @@ public class User implements Serializable {
     }
 
     /** Jeg har tilføjet gettere og settere til vores recipeList. **/
-    public List<Recipe> getRecipeList() {
+    public List<RecipeDTO> getRecipeList() {
         return recipeList;
     }
 
-    public void setRecipeList(List<Recipe> recipeList) {
+    public void setRecipeList(List<RecipeDTO> recipeList) {
         this.recipeList = recipeList;
     }
 }

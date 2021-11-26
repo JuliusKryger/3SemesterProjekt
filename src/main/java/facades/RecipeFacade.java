@@ -1,5 +1,6 @@
 package facades;
 
+import dtos.UserDTO;
 import entities.User;
 
 import javax.persistence.EntityManagerFactory;
@@ -26,8 +27,8 @@ public class RecipeFacade {
     //get trancation (begin and close) persist og merge med recipelist - i gang her
 
 
-    public User saveMealPlanToUser() {
-
+    public UserDTO saveMealPlanToUser() {
+        /** Skal tage imod en liste af RecipeDTO's??? og derefter gemme dem til useren, ved at kalde en form for user.setRecipeList() **/
         return null;
     }
 
