@@ -2,6 +2,7 @@ package dtos;
 
 import entities.Recipe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeDTO {
@@ -14,6 +15,7 @@ public class RecipeDTO {
     private String instructions;
     List<IngredientsDTO> ingredients;
      */
+    List<ExtendedIngredientDTO> extendedIngredients = new ArrayList<>();
 
     public RecipeDTO(Recipe recipe) {
         this.id = recipe.getId();
