@@ -9,9 +9,15 @@ public class RecipesDTO {
 
     List<RecipeDTO> recipes = new ArrayList<>();
 
-    public RecipesDTO(List<Recipe> entity) {
+    public RecipesDTO(List<RecipeDTO> recipes) {
+        this.recipes = recipes;
+    }
+
+   /* public RecipesDTO(List<Recipe> entity) {
         entity.forEach((recipe -> recipes.add(new RecipeDTO(recipe))));
     }
+
+    */
 
     public List<RecipeDTO> getRecipes() {
         return recipes;
