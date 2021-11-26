@@ -58,7 +58,7 @@ class RecipeResourceTest {
     @Test
     public void testServerIsUp() {
         System.out.println("Testing is server UP");
-        given().when().get("/recipe").then().statusCode(200);
+        given().when().get("/recipe/weekly").then().statusCode(200);
     }
 
 

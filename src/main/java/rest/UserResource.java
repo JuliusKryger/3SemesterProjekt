@@ -33,7 +33,7 @@ public class UserResource {
             username = json.get("username").getAsString();
             user.setUserName(username);
             password = json.get("password").getAsString();
-            FACADE.CreateNewUser(user)
+           // FACADE.CreateNewUser(user);
         } catch (Exception e) {
             throw new API_Exception("Malformed JSON Suplied", 400, e);
         }
