@@ -38,13 +38,12 @@ public class UserFacade {
         return user;
     }
 
-    public User CreateNewUser(String username, String password) throws AuthenticationException {
+    public User CreateNewUser(User user) throws AuthenticationException {
         EntityManager em = emf.createEntityManager();
-        User user = new User();
         try {
             em.getTransaction().begin();
-            user.setUserName(username);
-            user.setUserPass(password);
+            user.setUserName(user.getUserName());
+            user.setUserPass(user.getUserPass());
             em.persist(user);
             em.getTransaction().commit();
         } finally {
