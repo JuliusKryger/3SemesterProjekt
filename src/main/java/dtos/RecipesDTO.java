@@ -7,6 +7,9 @@ import java.util.List;
 
 public class RecipesDTO {
 
+    // User skal kunne tage imod en liste af opskrifter her inden fra
+
+
     List<RecipeDTO> recipes = new ArrayList<>();
 
     public RecipesDTO(List<RecipeDTO> recipes) {
@@ -19,6 +22,7 @@ public class RecipesDTO {
 
     */
 
+    //denne metode skal bruges til at kalde re
     public List<RecipeDTO> getRecipes() {
         return recipes;
     }

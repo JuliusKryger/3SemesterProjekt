@@ -3,22 +3,17 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import dtos.RecipesDTO;
 import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,6 +32,17 @@ public class User implements Serializable {
     @ManyToMany
     private List<Role> roleList = new ArrayList<>();
 
+    // Alex Maja igang
+    // user ny constructer med en liste af recipes
+    @OneToMany
+    private List<Recipe> recipes = new ArrayList<>();
+
+    public User(List<Recipe> getrecipes) {
+        this.userName = getUserName();
+        this.userPass = getUserPass();
+        this.recipes = getrecipes;
+    }
+
     public List<String> getRolesAsStrings() {
         if (roleList.isEmpty()) {
             return null;
@@ -54,6 +60,15 @@ public class User implements Serializable {
     public User(String userName, String userPass) {
         this.userName = userName;
         this.userPass = BCrypt.hashpw(userPass, BCrypt.gensalt());
+    }
+
+    //addrecipes vi er i gang her - hjælp
+    public void addRecipes(Recipe recipe){
+        if (recipe != null) {
+            this.recipes.add(recipe);
+            recipe.getRecipes().a
+        }
+
     }
 
     //TODO Change when password is hashed
