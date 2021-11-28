@@ -100,6 +100,4 @@ public class Recipe implements Serializable {
     }*/
 
 
-
-
 }

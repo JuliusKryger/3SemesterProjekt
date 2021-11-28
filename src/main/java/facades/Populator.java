@@ -12,7 +12,7 @@ public class Populator {
     private static EntityManagerFactory emf;
     private static UserFacade facade;
 
-    private static User user1 = new User("SuperAwesomeUser","SuperSecretPass");
+    private static User user1 = new User("SuperAwesomeUser", "SuperSecretPass");
 
     public static void populate() {
         emf = EMF_Creator.createEntityManagerFactory();

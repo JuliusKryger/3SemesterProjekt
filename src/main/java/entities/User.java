@@ -38,7 +38,9 @@ public class User implements Serializable {
     @OneToMany
     private List<RecipeDTO> recipeList = new ArrayList<>();
 
-    /** Hmm nok ikke en liste a Recipe entity, men nu må vi se **/
+    /**
+     * Hmm nok ikke en liste a Recipe entity, men nu må vi se
+     **/
     public User(List<RecipeDTO> getRecipes) {
         this.userName = getUserName();
         this.userPass = getUserPass();
@@ -134,7 +136,9 @@ public class User implements Serializable {
         roleList.add(userRole);
     }
 
-    /** Jeg har tilføjet gettere og settere til vores recipeList. **/
+    /**
+     * Jeg har tilføjet gettere og settere til vores recipeList.
+     **/
     public List<RecipeDTO> getRecipeList() {
         return recipeList;
     }
