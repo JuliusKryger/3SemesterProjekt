@@ -1,10 +1,8 @@
 package rest;
 
 import com.google.gson.Gson;
-import dtos.RecipeDTO;
 import dtos.RecipesDTO;
 import facades.RecipeFacade;
-import facades.UserFacade;
 import utils.EMF_Creator;
 import utils.HttpUtils;
 

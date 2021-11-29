@@ -25,7 +25,6 @@ public class UserDTO {
         this.userName = entity.getUserName();
         this.userPass = entity.getUserPass();
         this.roleList = entity.getRoleList();
-        this.recipesList = entity.getRecipeList();
     }
 
     public String getUserName() {

@@ -9,12 +9,8 @@ import javax.persistence.EntityManagerFactory;
 
 public class RecipeFacade {
 
-    // Vi skal have kaldt recpies dto i den her klasse
-    //Username password
-
     private static EntityManagerFactory emf;
     private static RecipeFacade instance;
-
 
 
     public RecipeFacade() {
@@ -28,15 +24,12 @@ public class RecipeFacade {
         return instance;
 
     }
-    //get trancation (begin and close) persist og merge med recipelist - i gang her
 
-
-    public WeeklyPlan saveFoodPlanToUser(String userName, int weekNumber, String  json) {
+    public WeeklyPlan saveFoodPlanToUser(String userName, int weekNumber, String json) {
         EntityManager em = emf.createEntityManager();
-
         WeeklyPlan wp = new WeeklyPlan();
         User user = new User();
-        try{
+        try {
             em.getTransaction().begin();
             user.setUserName(userName);
             wp.setUser(user);
@@ -44,14 +37,11 @@ public class RecipeFacade {
             wp.setJson(json);
             em.persist(wp);
             em.getTransaction().commit();
-
-        }finally {
+        } finally {
             em.close();
         }
-
         return wp;
     }
-
 
 
 }
