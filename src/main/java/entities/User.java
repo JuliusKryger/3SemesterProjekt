@@ -33,19 +33,9 @@ public class User implements Serializable {
     @ManyToMany
     private List<Role> roleList = new ArrayList<>();
 
-    // Alex Maja igang
-    // user ny constructer med en liste af recipes
-    @OneToMany
-    private List<RecipeDTO> recipeList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<WeeklyPlan> weeklyPlans = new ArrayList<>();
 
-    /**
-     * Hmm nok ikke en liste a Recipe entity, men nu må vi se
-     **/
-    public User(List<RecipeDTO> getRecipes) {
-        this.userName = getUserName();
-        this.userPass = getUserPass();
-        this.recipeList = getRecipes;
-    }
 
     public User() {
     }
@@ -136,14 +126,4 @@ public class User implements Serializable {
         roleList.add(userRole);
     }
 
-    /**
-     * Jeg har tilføjet gettere og settere til vores recipeList.
-     **/
-    public List<RecipeDTO> getRecipeList() {
-        return recipeList;
-    }
-
-    public void setRecipeList(List<RecipeDTO> recipeList) {
-        this.recipeList = recipeList;
-    }
 }

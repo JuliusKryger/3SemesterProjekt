@@ -34,4 +34,6 @@ public class RecipeResource {
         // --- Let this be for now, encase we will need it for later --- RecipeDTO recipeDTO = gson.fromJson(jsonObject.get("recipes"), RecipeDTO.class);
     }
 
+    // lav nyt endpoint post, userid
+
 }
