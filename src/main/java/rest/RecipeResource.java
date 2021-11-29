@@ -3,8 +3,12 @@ package rest;
 import com.google.gson.Gson;
 import dtos.RecipeDTO;
 import dtos.RecipesDTO;
+import facades.RecipeFacade;
+import facades.UserFacade;
+import utils.EMF_Creator;
 import utils.HttpUtils;
 
+import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +17,9 @@ import java.io.IOException;
 
 @Path("recipe")
 public class RecipeResource {
+
+    private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
+    private static RecipeFacade instance = RecipeFacade.getUserFacade(EMF);
 
     @Context
     private UriInfo context;
@@ -35,5 +42,13 @@ public class RecipeResource {
     }
 
     // lav nyt endpoint post, userid
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("weekly/{userName}/{weekNumber}")
+    public String saveRecipes(@PathParam("userName") String userName, @PathParam("weekNumber") int weekNumber, String json) throws IOException {
+        instance.saveFoodPlanToUser(userName, weekNumber, json);
+        return "succes";
+    }
 
 }

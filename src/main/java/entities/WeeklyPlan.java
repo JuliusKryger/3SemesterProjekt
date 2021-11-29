@@ -18,8 +18,7 @@ public class WeeklyPlan {
     public WeeklyPlan() {
     }
 
-    public WeeklyPlan(Integer id, String json, User user, int weekNumber) {
-        this.id = id;
+    public WeeklyPlan(String json, User user, int weekNumber) {
         this.json = json;
         this.user = user;
         this.weekNumber = weekNumber;
@@ -31,5 +30,29 @@ public class WeeklyPlan {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getWeekNumber() {
+        return weekNumber;
+    }
+
+    public void setWeekNumber(int weekNumber) {
+        this.weekNumber = weekNumber;
     }
 }

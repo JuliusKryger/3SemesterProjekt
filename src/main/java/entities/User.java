@@ -44,7 +44,11 @@ public class User implements Serializable {
         this.userName = userName;
         this.userPass = BCrypt.hashpw(userPass, BCrypt.gensalt());
     }
-/*
+
+    public User(String userName) {
+        this.userName = userName;
+    }
+    /*
     public void addRecipes(Hobby hobby) {
         if (hobby != null) {
             this.hobbies.add(hobby);
