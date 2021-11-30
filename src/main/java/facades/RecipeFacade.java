@@ -28,14 +28,16 @@ public class RecipeFacade {
     public WeeklyPlan saveFoodPlanToUser(String userName, int weekNumber, String json) {
         EntityManager em = emf.createEntityManager();
         WeeklyPlan wp = new WeeklyPlan();
-        User user = new User();
-        try {
-            em.getTransaction().begin();
-            user.setUserName(userName);
+        User user = em.find(User.class, userName);
+        if (user != null) {
             wp.setUser(user);
             wp.setWeekNumber(weekNumber);
             wp.setJson(json);
-            em.persist(wp);
+            user.addWeekPlan(wp);
+        }
+        try {
+            em.getTransaction().begin();
+            em.merge(user);
             em.getTransaction().commit();
         } finally {
             em.close();

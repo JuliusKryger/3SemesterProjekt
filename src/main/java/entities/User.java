@@ -33,7 +33,7 @@ public class User implements Serializable {
     @ManyToMany
     private List<Role> roleList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeeklyPlan> weeklyPlans = new ArrayList<>();
 
 
@@ -48,6 +48,12 @@ public class User implements Serializable {
     public User(String userName) {
         this.userName = userName;
     }
+
+
+    public void addWeekPlan (WeeklyPlan wp) {
+        weeklyPlans.add(wp);
+    }
+
     /*
     public void addRecipes(Hobby hobby) {
         if (hobby != null) {
