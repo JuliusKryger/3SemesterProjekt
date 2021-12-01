@@ -8,7 +8,7 @@ public class WeeklyPlan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    
+
     @Basic
     @Column(name = "json", columnDefinition="LONGTEXT")
     private String json;

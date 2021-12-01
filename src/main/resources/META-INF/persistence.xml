@@ -7,6 +7,8 @@
         <class>entities.Recipe</class>
         <class>entities.Ingredients</class>
         <class>entities.WeeklyPlan</class>
+        <class>entities.User</class>
+        <class>entities.Role</class>
         <!--    <class>entities.RenameMe</class>-->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
