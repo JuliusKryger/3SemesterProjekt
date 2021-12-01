@@ -50,6 +50,7 @@ class UserFacadeTest {
     void getUserFacade() {
     }
 
+    
 /*
     @Test
     void getVeryfiedUser() throws AuthenticationException {
