@@ -26,7 +26,7 @@ class UserFacadeTest {
 
     @BeforeAll
     static void setUp() {
-        facade = UserFacade.getUserFacade(emf);
+       /* facade = UserFacade.getUserFacade(emf);
         em.getTransaction().begin();
         Role userRole = new Role("user");
         Role adminRole = new Role("admin");
@@ -39,7 +39,7 @@ class UserFacadeTest {
         em.persist(user);
         em.persist(admin);
         em.persist(both);
-        em.getTransaction().commit();
+        em.getTransaction().commit();*/
     }
 
     @AfterEach
