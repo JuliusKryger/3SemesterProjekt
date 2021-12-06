@@ -54,43 +54,6 @@ public class User implements Serializable {
         weeklyPlans.add(wp);
     }
 
-    /*
-    public void addRecipes(Hobby hobby) {
-        if (hobby != null) {
-            this.hobbies.add(hobby);
-            hobby.getPersons().add(this);
-        }
-    }
-
-    public void removeRecipes(Hobby hobby) {
-        if (hobby != null) {
-            this.hobbies.remove(hobby);
-            hobby.getPersons().remove(this);
-        }
-    }
-
-    public List<Hobby> getRecipeList(List<HobbyDTO> hobbyDTOS) {
-        ArrayList<Hobby> list = new ArrayList<>();
-        for (HobbyDTO h : hobbyDTOS) {
-            list.add(new Hobby(h.getName(), h.getWikiLink(), h.getCategory(), h.getType()));
-        }
-        return list;
-    }
-
-    public List<HobbyDTO> getRecipeDTOList(List<Hobby> hobby) {
-        ArrayList<HobbyDTO> list = new ArrayList<>();
-        for (Hobby h : hobby) {
-            list.add(new HobbyDTO(h));
-        }
-        return list;
-    }
-
-    public void replaceRecipes(ArrayList<Hobby> hobbies) {
-        this.hobbies = hobbies;
-    }
-
- */
-
     public List<String> getRolesAsStrings() {
         if (roleList.isEmpty()) {
             return null;

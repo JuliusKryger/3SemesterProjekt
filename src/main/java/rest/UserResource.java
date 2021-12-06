@@ -7,6 +7,7 @@ import entities.User;
 import errorhandling.API_Exception;
 import facades.UserFacade;
 import security.errorhandling.AuthenticationException;
+import utils.EMF_Creator;
 
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
@@ -17,9 +18,9 @@ import javax.ws.rs.core.Response;
 @Path("signup")
 public class UserResource {
 
-    private static EntityManagerFactory emf;
+    private static final EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
     UserFacade FACADE = UserFacade.getUserFacade(emf);
-    User user;
+    User user = new User();
 
 
     @POST
