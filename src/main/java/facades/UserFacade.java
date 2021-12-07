@@ -47,7 +47,7 @@ public class UserFacade {
              **/
             em.getTransaction().begin();
             user.setUserName(user.getUserName());
-            user.setUserPass(user.getUserPass());
+            //user.setUserPass(user.getUserPass());
             em.persist(user);
             em.getTransaction().commit();
         } finally {
