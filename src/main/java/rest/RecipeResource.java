@@ -49,4 +49,19 @@ public class RecipeResource {
         return "succes";
     }
 
+    // endpoint til groceryList
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("grocerylist")
+    public String getGroceryList() throws IOException {
+        String APIKEY = "74e9c2acb0284f6eaa9657e397bbcbca";
+        Gson gson = new Gson();
+        String userName = HttpUtils.fetchData("https://api.spoonacular.com/recipes/random?number=7&tags=dinner&apiKey=" + APIKEY);
+
+        RecipesDTO recipesDTO = gson.fromJson(userName, RecipesDTO.class);
+        String result = gson.toJson(recipesDTO);
+        return result;
+    }
+
 }
