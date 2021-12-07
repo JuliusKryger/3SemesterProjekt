@@ -2,6 +2,9 @@ package entities;
 
 import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "WeeklyPlanner.getJson", query = "SELECT w from WeeklyPlan w where w.weekNumber = :weekNumber")
+})
 @Entity
 public class WeeklyPlan {
     @Id

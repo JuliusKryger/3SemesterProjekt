@@ -1,16 +1,21 @@
 package facades;
 
+import dtos.IngredientsDTO;
 import dtos.UserDTO;
+import entities.Ingredients;
 import entities.User;
 import entities.WeeklyPlan;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class RecipeFacade {
 
     private static EntityManagerFactory emf;
     private static RecipeFacade instance;
+    User user;
 
 
     public RecipeFacade() {
@@ -45,5 +50,55 @@ public class RecipeFacade {
         return wp;
     }
 
+    // methode String (return statement) der henter ned fra databassen username og week number senere hen
+    // skal hive ud JSON String
+    // endpoint get
+    // EM find username med find på user name
 
+    /**
+     *     public PersonsDTO getAllPersons(){
+     *         EntityManager em = emf.createEntityManager();
+     *         try{
+     *             em.getTransaction().begin();
+     *             TypedQuery <Person> typedQuery = em.createNamedQuery("Person.getAllRows", Person.class);
+     *             List<Person> personList = typedQuery.getResultList();
+     *             PersonsDTO personsDTO = new PersonsDTO(personList);
+     *             em.getTransaction().commit();
+     *             return personsDTO;
+     *         }
+     *         finally {
+     *             em.close();
+     *         }
+     *     }
+     * **/
+
+    public IngredientsDTO getGroceryList(String userName, int weekNumber) {
+        EntityManager em = emf.createEntityManager();
+        /** Vi skal i pricippet også give den user med, men for nu lad os bare hente den ud baseret på weekNumber. **/
+        User user = em.find(User.class, userName);
+        try {
+            em.getTransaction().begin();
+            TypedQuery<WeeklyPlan> typedQuery = em.createNamedQuery("WeeklyPlanner.getJson", WeeklyPlan.class).setParameter("weekNumber", weekNumber);
+            List<WeeklyPlan> weeklyPlanList = typedQuery.getResultList();
+            IngredientsDTO dto = new IngredientsDTO(weeklyPlanList);
+            em.getTransaction().commit();
+            return dto;
+        } finally {
+            em.close();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
