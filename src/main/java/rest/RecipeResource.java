@@ -53,14 +53,14 @@ public class RecipeResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("grocerylist")
-    public String getGroceryList() throws IOException {
-        String APIKEY = "74e9c2acb0284f6eaa9657e397bbcbca";
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("grocerylist/{userName}/{weekNumber}")
+    public String getGroceryList(@PathParam("userName") String userName, @PathParam("weekNumber") int weekNumber) throws IOException {
         Gson gson = new Gson();
-        String userName = HttpUtils.fetchData("https://api.spoonacular.com/recipes/random?number=7&tags=dinner&apiKey=" + APIKEY);
-
-        RecipesDTO recipesDTO = gson.fromJson(userName, RecipesDTO.class);
-        String result = gson.toJson(recipesDTO);
+        System.out.println(userName);
+        System.out.println(weekNumber);
+        String wp = instance.getGroceryList(userName, weekNumber);
+        String result = gson.toJson(wp);
         return result;
     }
 
