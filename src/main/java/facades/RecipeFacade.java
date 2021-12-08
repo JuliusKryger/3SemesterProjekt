@@ -73,7 +73,7 @@ public class RecipeFacade {
      *     }
      * **/
 
-    public String getGroceryList(String userName, int weekNumber) {
+    public String getFoodPlan(String userName, int weekNumber) {
         EntityManager em = emf.createEntityManager();
         /** Vi skal i pricippet også give den user med, men for nu lad os bare hente den ud baseret på weekNumber. **/
         //User user = em.find(User.class, userName);

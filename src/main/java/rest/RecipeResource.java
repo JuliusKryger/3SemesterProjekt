@@ -50,18 +50,14 @@ public class RecipeResource {
     }
 
     // endpoint til groceryList
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("grocerylist/{userName}/{weekNumber}")
-    public String getGroceryList(@PathParam("userName") String userName, @PathParam("weekNumber") int weekNumber) throws IOException {
-        Gson gson = new Gson();
+    @Path("foodplan/{userName}/{weekNumber}")
+    public String getFoodPlan(@PathParam("userName") String userName, @PathParam("weekNumber") int weekNumber) throws IOException {
         System.out.println(userName);
         System.out.println(weekNumber);
-        String wp = instance.getGroceryList(userName, weekNumber);
-        String result = gson.toJson(wp);
-        return result;
+        String wp = instance.getFoodPlan(userName, weekNumber);
+        return wp;
     }
-
 }
