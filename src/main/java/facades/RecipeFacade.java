@@ -9,6 +9,7 @@ import entities.WeeklyPlan;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.WebApplicationException;
 import java.util.List;
 
 public class RecipeFacade {
@@ -72,17 +73,22 @@ public class RecipeFacade {
      *     }
      * **/
 
-    public IngredientsDTO getGroceryList(String userName, int weekNumber) {
+    public String getGroceryList(String userName, int weekNumber) {
         EntityManager em = emf.createEntityManager();
         /** Vi skal i pricippet også give den user med, men for nu lad os bare hente den ud baseret på weekNumber. **/
         User user = em.find(User.class, userName);
         try {
             em.getTransaction().begin();
-            TypedQuery<WeeklyPlan> typedQuery = em.createNamedQuery("WeeklyPlanner.getJson", WeeklyPlan.class).setParameter("weekNumber", weekNumber);
-            List<WeeklyPlan> weeklyPlanList = typedQuery.getResultList();
-            IngredientsDTO dto = new IngredientsDTO(weeklyPlanList);
-            em.getTransaction().commit();
-            return dto;
+            TypedQuery<WeeklyPlan> typedQuery = em.createNamedQuery("WeeklyPlanner.getJson", WeeklyPlan.class);
+            typedQuery.setParameter("weekNumber", weekNumber);
+            typedQuery.setParameter("userName", userName);
+            WeeklyPlan wp = typedQuery.getSingleResult();
+            if (wp != null) {
+                return wp.getJson();
+            }else {
+                throw new WebApplicationException("Weekplan dosen't exist.", 400);
+            }
+
         } finally {
             em.close();
         }
