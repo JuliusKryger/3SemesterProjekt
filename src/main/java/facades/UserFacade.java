@@ -1,5 +1,6 @@
 package facades;
 
+import entities.Role;
 import entities.User;
 
 import javax.persistence.EntityManager;
@@ -40,13 +41,17 @@ public class UserFacade {
 
     public User CreateNewUser(User user) throws AuthenticationException {
         EntityManager em = emf.createEntityManager();
+
         try {
             /**
              * Okay her skal vi have gjort så når en ny user bliver oprettet bliver de tildelt user rollen ligenu
              * Så bliver nye users ikke tildelt en ny rolle, men se evt. i SetUpTestUsers hvordan der bliver tildelt roller der.
              **/
+            Role userRole = new Role("user");
             em.getTransaction().begin();
+            
             user.setUserName(user.getUserName());
+            user.addRole(userRole);
             //user.setUserPass(user.getUserPass());
             em.persist(user);
             em.getTransaction().commit();
