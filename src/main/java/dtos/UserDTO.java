@@ -3,29 +3,35 @@ package dtos;
 import entities.Recipe;
 import entities.Role;
 import entities.User;
+import facades.UserFacade;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
+
     private String userName;
     private String userPass;
     private List<Role> roleList;
-    private List<RecipeDTO> recipesList;
+    //private List<RecipeDTO> recipesList;
 
     public UserDTO() {
     }
 
     public UserDTO(String userName, List<RecipeDTO> recipesList) {
         this.userName = userName;
-        this.recipesList = recipesList;
+       // this.recipesList = recipesList;
     }
 
     public UserDTO(User entity) {
         this.userName = entity.getUserName();
         this.userPass = entity.getUserPass();
-        this.roleList = entity.getRoleList();
+        //this.roleList = entity.getRoleList();
     }
+
 
     public String getUserName() {
         return userName;
@@ -51,11 +57,11 @@ public class UserDTO {
         this.roleList = roleList;
     }
 
-    public List<RecipeDTO> getRecipesList() {
-        return recipesList;
-    }
-
-    public void setRecipesList(List<RecipeDTO> recipesList) {
-        this.recipesList = recipesList;
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "userName='" + userName + '\'' +
+                ", userPass='" + userPass + '\'' +
+                '}';
     }
 }

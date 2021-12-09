@@ -1,12 +1,18 @@
 package facades;
 
+import com.google.gson.Gson;
+import dtos.UserDTO;
+import dtos.UsersDTO;
 import entities.Role;
 import entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 import security.errorhandling.AuthenticationException;
+
+import java.util.List;
 
 public class UserFacade {
 
@@ -59,6 +65,21 @@ public class UserFacade {
             em.close();
         }
         return user;
+    }
+
+    // getAll users for admin page
+    public UsersDTO getAll() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            TypedQuery<User> query = em.createNamedQuery("User.getAllRows", User.class);
+            List<User> result = query.getResultList();
+            UsersDTO dto = new UsersDTO(result);
+            em.getTransaction().commit();
+            return dto;
+        } finally {
+            em.close();
+        }
     }
 
 }

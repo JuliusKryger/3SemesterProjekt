@@ -1,8 +1,12 @@
 package rest;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dtos.RecipesDTO;
+import dtos.UsersDTO;
+import entities.User;
 import facades.RecipeFacade;
+import facades.UserFacade;
 import utils.EMF_Creator;
 import utils.HttpUtils;
 
@@ -17,7 +21,9 @@ import java.io.IOException;
 public class RecipeResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-    private static RecipeFacade instance = RecipeFacade.getUserFacade(EMF);
+    private static final RecipeFacade instance = RecipeFacade.getUserFacade(EMF);
+    private static final UserFacade FACADE = UserFacade.getUserFacade(EMF);
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Context
     private UriInfo context;
@@ -49,7 +55,7 @@ public class RecipeResource {
         return "succes";
     }
 
-    // endpoint til groceryList
+    // Edmin for groceryList
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -60,4 +66,14 @@ public class RecipeResource {
         String wp = instance.getFoodPlan(userName, weekNumber);
         return wp;
     }
+    // Endpoint for Admin
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("admin")
+    public String getAllUsers() {
+        UsersDTO u = FACADE.getAll();
+        return GSON.toJson(u);
+    }
+
+
 }

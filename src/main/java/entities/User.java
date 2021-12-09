@@ -11,6 +11,10 @@ import dtos.RecipeDTO;
 import dtos.RecipesDTO;
 import org.mindrot.jbcrypt.BCrypt;
 
+@NamedQueries({
+        @NamedQuery(name = "User.getAllRows", query = "SELECT u from User u")
+})
+
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
