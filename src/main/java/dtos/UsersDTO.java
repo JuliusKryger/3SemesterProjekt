@@ -7,7 +7,6 @@ import java.util.List;
 
 public class UsersDTO {
 
-    // tage imod en liste af users
     List<UserDTO> users = new ArrayList<>();
 
     public UsersDTO(List<User> entity) {

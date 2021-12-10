@@ -13,7 +13,7 @@ public class WeeklyPlan {
     private Integer id;
 
     @Basic
-    @Column(name = "json", columnDefinition="LONGTEXT")
+    @Column(name = "json", columnDefinition = "LONGTEXT")
     private String json;
 
     @ManyToOne

@@ -49,13 +49,9 @@ public class UserFacade {
         EntityManager em = emf.createEntityManager();
 
         try {
-            /**
-             * Okay her skal vi have gjort så når en ny user bliver oprettet bliver de tildelt user rollen ligenu
-             * Så bliver nye users ikke tildelt en ny rolle, men se evt. i SetUpTestUsers hvordan der bliver tildelt roller der.
-             **/
             Role userRole = new Role("user");
             em.getTransaction().begin();
-            
+
             user.setUserName(user.getUserName());
             user.addRole(userRole);
             //user.setUserPass(user.getUserPass());
@@ -67,7 +63,6 @@ public class UserFacade {
         return user;
     }
 
-    // getAll users for admin page
     public UsersDTO getAll() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -81,5 +76,4 @@ public class UserFacade {
             em.close();
         }
     }
-
 }

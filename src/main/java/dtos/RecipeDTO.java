@@ -10,21 +10,12 @@ public class RecipeDTO {
     private String title;
     private int readyInMinutes;
     private int servings;
-    /*
-    private String image;
-    private String instructions;
-    List<IngredientsDTO> ingredients;
-     */
     List<ExtendedIngredientDTO> extendedIngredients = new ArrayList<>();
 
     public RecipeDTO(Recipe recipe) {
         this.id = recipe.getId();
         this.readyInMinutes = recipe.getReadyInMinutes();
         this.servings = recipe.getServings();
-        /*
-        this.image = recipe.getImage();
-        this.instructions = recipe.getInstructions();
-         */
     }
 
     public Integer getId() {
@@ -59,32 +50,6 @@ public class RecipeDTO {
     public void setServings(int servings) {
         this.servings = servings;
     }
-    /*
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
-    }
-
-    public List<IngredientsDTO> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<IngredientsDTO> ingredients) {
-        this.ingredients = ingredients;
-    }
-    */
 
     @Override
     public String toString() {

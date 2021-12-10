@@ -17,12 +17,7 @@ public class Recipe implements Serializable {
     private String title;
     private int readyInMinutes;
     private int servings;
-    //private String image;
-    //private String instructions;
 
-    /*@OneToMany
-    private List<Ingredients> ingredientsList;
-*/
     public Recipe() {
     }
 
@@ -31,9 +26,6 @@ public class Recipe implements Serializable {
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
-        //this.image = image;
-        //this.instructions = instructions;
-        //this.ingredientsList = new ArrayList<>();
     }
 
     public Recipe(RecipeDTO recipeDTO) {
@@ -74,30 +66,4 @@ public class Recipe implements Serializable {
     public void setServings(int servings) {
         this.servings = servings;
     }
-
-    /*public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
-    }
-
-    public List<Ingredients> getIngredientsList() {
-        return ingredientsList;
-    }
-
-    public void setIngredientsList(List<Ingredients> ingredientsList) {
-        this.ingredientsList = ingredientsList;
-    }*/
-
-
 }

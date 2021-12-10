@@ -1,14 +1,8 @@
 package dtos;
 
-import entities.Recipe;
 import entities.Role;
 import entities.User;
-import facades.UserFacade;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
@@ -16,14 +10,8 @@ public class UserDTO {
     private String userName;
     private String userPass;
     private List<Role> roleList;
-    //private List<RecipeDTO> recipesList;
 
     public UserDTO() {
-    }
-
-    public UserDTO(String userName, List<RecipeDTO> recipesList) {
-        this.userName = userName;
-       // this.recipesList = recipesList;
     }
 
     public UserDTO(User entity) {
@@ -31,7 +19,6 @@ public class UserDTO {
         this.userPass = entity.getUserPass();
         //this.roleList = entity.getRoleList();
     }
-
 
     public String getUserName() {
         return userName;

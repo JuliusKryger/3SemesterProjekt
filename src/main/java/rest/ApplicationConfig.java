@@ -15,13 +15,11 @@ public class ApplicationConfig extends Application {
 
     //OBS! If any new rest resources is added, they also need to be added down below.
     private void addRestResourceClasses(Set<Class<?>> resources) {
-
         resources.add(cors.CorsFilter.class);
         resources.add(errorhandling.API_ExceptionMapper.class);
         resources.add(errorhandling.GenericExceptionMapper.class);
         resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
         resources.add(rest.DemoResource.class);
-        resources.add(rest.AnimeResources.class);
         resources.add(rest.RecipeResource.class);
         resources.add(rest.UserResource.class);
         resources.add(security.JWTAuthenticationFilter.class);
@@ -30,5 +28,4 @@ public class ApplicationConfig extends Application {
         resources.add(security.errorhandling.AuthenticationExceptionMapper.class);
         resources.add(security.errorhandling.NotAuthorizedExceptionMapper.class);
     }
-
 }

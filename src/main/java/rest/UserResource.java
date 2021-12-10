@@ -1,23 +1,16 @@
 package rest;
 
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import dtos.UsersDTO;
 import entities.User;
 import errorhandling.API_Exception;
 import facades.UserFacade;
-import security.errorhandling.AuthenticationException;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
-
 
 @Path("signup")
 public class UserResource {
@@ -25,8 +18,6 @@ public class UserResource {
     private static final EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
     UserFacade FACADE = UserFacade.getUserFacade(emf);
     User user = new User();
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -44,8 +35,6 @@ public class UserResource {
         } catch (Exception e) {
             throw new API_Exception("Malformed JSON Suplied", 400, e);
         }
-
         return null;
     }
-
 }
