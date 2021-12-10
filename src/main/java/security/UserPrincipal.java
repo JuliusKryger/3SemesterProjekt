@@ -24,6 +24,8 @@ public class UserPrincipal implements Principal {
         this.roles = Arrays.asList(roles);
     }
 
+
+
     @Override
     public String getName() {
         return username;
